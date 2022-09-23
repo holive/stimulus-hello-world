@@ -11,7 +11,8 @@
 
 		<div data-controller="clipboard">
 			 <label>
-				 PIN: <input data-clipboard-target="source" type="text" value="1234" readonly>
+				 PIN:
+				 <input data-clipboard-target="source" type="text" value="1234" readonly>
 			</label>
 
 			<!--	We’ve omitted click-> from the action descriptor. -->
@@ -22,10 +23,20 @@
 
 		<div data-controller="clipboard">
 			<label>
-				PIN: <input data-clipboard-target="source" type="text" value="3737" readonly>
+				PIN:
+				<input data-clipboard-target="source" type="text" value="3737" readonly>
 			</label>
 
 			<button data-action="clipboard#copy">Copy to Clipboard</button>
+		</div>
+
+		<div data-controller="clipboard">
+			 <label>
+				 PIN (link button):
+				 <textarea data-clipboard-target="source" readonly>3738</textarea>
+			</label>
+
+			<a href="#" data-action="clipboard#copy">Copy to Clipboard</a>
 		</div>
 
 	</body>

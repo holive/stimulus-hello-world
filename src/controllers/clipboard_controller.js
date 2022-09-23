@@ -5,7 +5,8 @@ export default class extends Controller {
 	// this.sourceTarget, this.sourceTargets, this.hasSourceTarget
 	static targets = ["source"]
 	
-	copy() {
+	copy(event) {
+		event.preventDefault()
 		navigator.clipboard.writeText(this.sourceTarget.value)
 	}
 }
