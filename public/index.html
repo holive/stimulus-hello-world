@@ -1,17 +1,33 @@
 <!doctype html>
-<html>
+<html lang="eng">
 	<head>
 	  <meta charset="utf-8">
 	  <link rel="stylesheet" href="main.css">
 	  <script src="bundle.js" async></script>
+		<title></title>
 	</head>
 
 	<body >
 
-		<div data-controller="hello">
-			<input data-hello-target="name" type="text">
+		<div data-controller="clipboard" data-clipboard-supported-class="clipboard--supported">
+			 <label>
+				 PIN:
+				 <input data-clipboard-target="source" type="text" value="1234" readonly>
+			</label>
 
-			<button data-action="click->hello#greet">Greet</button>
+			<!--	We’ve omitted click-> from the action descriptor. -->
+			<!--	because Stimulus defines click as the default event for actions on <button> elements. -->
+			<!--	https://stimulus.hotwired.dev/handbook/building-something-real -->
+			<button data-action="clipboard#copy" class="clipboard-button">Copy to Clipboard</button>
+		</div>
+
+		<div data-controller="clipboard" data-clipboard-supported-class="clipboard--supported">
+			 <label>
+				 PIN (link button):
+				 <textarea data-clipboard-target="source" readonly>3738</textarea>
+			</label>
+
+			<a href="#" data-action="clipboard#copy" class="clipboard-button">Copy to Clipboard</a>
 		</div>
 
 	</body>
