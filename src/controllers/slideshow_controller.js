@@ -6,23 +6,22 @@ export default class extends Controller {
 	// Stimulus will create a this.indexValue controller property associated
 	// with a data-slideshow-index-value attribute, and handle the numeric conversion for us.
 	// https://stimulus.hotwired.dev/reference/values
-	static values = { index: Number }
+	// static values = { index: Number }
+	static values = { index: { type: Number, default: 2 } } // That would start the index at 2, if no data-slideshow-index-value attribute was defined on the controller element.
 	
 	static targets = ["slide"]
 	
-	// https://stimulus.hotwired.dev/reference/lifecycle-callbacks
-	initialize() {
+	// Stimulus calls the indexValueChanged() method at initialization and in response to any change to the data-slideshow-index-value
+	indexValueChanged() {
 		this.showCurrentSlide()
 	}
 	
 	next() {
 		this.indexValue++
-		this.showCurrentSlide()
 	}
 	
 	previous() {
 		this.indexValue--
-		this.showCurrentSlide()
 	}
 	
 	showCurrentSlide() {
