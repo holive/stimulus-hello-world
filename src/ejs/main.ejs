@@ -1,0 +1,39 @@
+<div data-controller="clipboard" data-clipboard-supported-class="clipboard--supported">
+    <label>
+        pin:
+        <input data-clipboard-target="source" type="text" value="1234" readonly>
+    </label>
+
+    <!--	we’ve omitted click-> from the action descriptor. -->
+    <!--	because stimulus defines click as the default event for actions on <button> elements. -->
+    <!--	https://stimulus.hotwired.dev/handbook/building-something-real -->
+    <button data-action="clipboard#copy" class="clipboard-button">copy to clipboard</button>
+</div>
+
+<div data-controller="clipboard" data-clipboard-supported-class="clipboard--supported">
+    <label>
+        pin (link button):
+        <textarea data-clipboard-target="source" readonly>3738</textarea>
+    </label>
+
+    <a href="#" data-action="clipboard#copy" class="clipboard-button">copy to clipboard</a>
+</div>
+
+<h2>slideshow</h2>
+
+<div data-controller="slideshow" data-slideshow-index-value="1">
+    <button data-action="slideshow#previous"> ←</button>
+    <button data-action="slideshow#next"> →</button>
+
+    <div data-slideshow-target="slide">🐵</div>
+    <div data-slideshow-target="slide">🙈</div>
+    <div data-slideshow-target="slide">🙉</div>
+    <div data-slideshow-target="slide">🙊</div>
+</div>
+
+<h2>working with external resources</h2>
+
+<div data-controller="content-loader"
+     data-content-loader-url-value="/messages.html"
+     data-content-loader-refresh-interval-value="5000"
+></div>
