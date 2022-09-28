@@ -15,8 +15,9 @@ main {
   min-height: 800px;
   max-width: 1400px;
   width: 100%;
-  background-color: #30374a;
+  background-color: #30374b;
   border-radius: 56px;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -61,15 +62,15 @@ main {
 .box:before {
   content: '';
   position: absolute;
-  background-color: #343d52;
+  background-color: #363e53;
 }
 .box:after {
   content: '';
   position: absolute;
-  background-color: #30374a;
+  background-color: #30374b;
 }
 
-/* 25 */
+/* ------- 25 */
 .box25:before {
   border-radius: 50%;
   left: 0;
@@ -91,13 +92,14 @@ main {
   to {transform: rotate(360deg);}
 }
 
-/* 24 */
+/* ------- 24 */
 .box24:before {
   border-radius: 50%;
   left: -100%;
   top: -100%;
   right: 0;
   bottom: 0;
+  background-color: #363c4f;
 }
 .box24:after {
   width: 200px;
@@ -106,9 +108,60 @@ main {
   bottom: -300px;
   transform: rotate(270deg);
   transform-origin: 0 0;
- animation: box24 1s ease-in-out 1 normal forwards;
+  animation: box24 0.8s ease-in-out 1 normal forwards;
 }
 @keyframes box24 {
   from {transform: rotate(270deg);}
   to {transform: rotate(180deg);}
 }
+
+/* ------- 23 */
+.box23:before {
+  border-radius: 50%;
+  left: 0;
+  top: -100%;
+  right: -100%;
+  bottom: 0;
+  background-color: #383f52;
+}
+.box23:after {
+  width: 200px;
+  height: 300px;
+  right: -200px;
+  bottom: -300px;
+  transform: rotate(180deg);
+  transform-origin: 0 0;
+  animation: box23 0.8s ease-in-out 1 backwards;
+  animation-fill-mode: both;
+}
+@keyframes box23 {
+  from {transform: rotate(180deg);}
+  to {transform: rotate(90deg);}
+}
+
+/* ------- 22 */
+/*.box22 { overflow: visible }*/
+.box22:before {
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  right: -100%;
+  bottom: -100%;
+  background-color: #2d3448;
+}
+.box22:after {
+  width: 200px;
+  height: 300px;
+  left: 0;
+  bottom: -300px;
+  transform: rotate(270deg);
+  transform-origin: 0 0;
+  animation: box22 0.8s ease-in-out 1 backwards;
+  animation-fill-mode: both;
+}
+@keyframes box22 {
+  from {transform: rotate(270deg);}
+  to {transform: rotate(180deg);}
+}
+
+.box:after { animation-delay: .5s; }
