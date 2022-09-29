@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "keyframes.css";
 
 main {
   height: 100vh;
@@ -22,6 +23,14 @@ main {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+
+.smallContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
@@ -70,30 +79,24 @@ main {
   background-color: #30374b;
 }
 
-/* ------- 25 */
-.box25:before {
+.circle_0:before {
   border-radius: 50%;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
 }
-.box25:after {
+.circle_0:after {
   width: 200px;
   height: 250px;
   left: 100%;
   bottom: 0;
   transform: rotate(270deg);
   transform-origin: 0 100%;
-  animation: box25 0.8s ease-in-out 1 normal forwards;
-}
-@keyframes box25 {
-  from {transform: rotate(270deg);}
-  to {transform: rotate(360deg);}
+  animation: circle_0 0.8s ease-in-out 1 normal forwards;
 }
 
-/* ------- 24 */
-.box24:before {
+.circle_1:before {
   border-radius: 50%;
   left: -100%;
   top: -100%;
@@ -101,22 +104,17 @@ main {
   bottom: 0;
   background-color: #363c4f;
 }
-.box24:after {
+.circle_1:after {
   width: 200px;
   height: 300px;
   right: 0;
   bottom: -300px;
   transform: rotate(270deg);
   transform-origin: 0 0;
-  animation: box24 0.8s ease-in-out 1 normal forwards;
-}
-@keyframes box24 {
-  from {transform: rotate(270deg);}
-  to {transform: rotate(180deg);}
+  animation: circle_1 0.8s ease-in-out 1 normal forwards;
 }
 
-/* ------- 23 */
-.box23:before {
+.circle_2:before {
   border-radius: 50%;
   left: 0;
   top: -100%;
@@ -124,24 +122,18 @@ main {
   bottom: 0;
   background-color: #383f52;
 }
-.box23:after {
+.circle_2:after {
   width: 200px;
   height: 300px;
   right: -200px;
   bottom: -300px;
   transform: rotate(180deg);
   transform-origin: 0 0;
-  animation: box23 0.8s ease-in-out 1 backwards;
+  animation: circle_2 0.8s ease-in-out 1 backwards;
   animation-fill-mode: both;
 }
-@keyframes box23 {
-  from {transform: rotate(180deg);}
-  to {transform: rotate(90deg);}
-}
 
-/* ------- 22 */
-/*.box22 { overflow: visible }*/
-.box22:before {
+.circle_3:before {
   border-radius: 50%;
   left: 0;
   top: 0;
@@ -149,19 +141,99 @@ main {
   bottom: -100%;
   background-color: #2d3448;
 }
-.box22:after {
+.circle_3:after {
   width: 200px;
   height: 300px;
   left: 0;
   bottom: -300px;
   transform: rotate(270deg);
   transform-origin: 0 0;
-  animation: box22 0.8s ease-in-out 1 backwards;
+  animation: circle_1 0.8s ease-in-out 1 backwards;
   animation-fill-mode: both;
 }
-@keyframes box22 {
-  from {transform: rotate(270deg);}
-  to {transform: rotate(180deg);}
+
+.circle_2.circle_4:before { background-color: #3a4155 }
+.circle_2.circle_5:before { background-color: #3d4455 }
+
+.circle_6:before {
+  border-radius: 50%;
+  right: 0;
+  top: 0;
+  left: -100%;
+  bottom: -100%;
+  background-color: #2a3146;
+}
+.circle_6:after {
+  width: 200px;
+  height: 300px;
+  left: 0;
+  bottom: -100px;
+  transform: rotate(360deg);
+  transform-origin: 0 0;
+  animation: circle_6 0.8s ease-in-out 1 backwards;
+  animation-fill-mode: both;
 }
 
-.box:after { animation-delay: .5s; }
+.circle_7:before {
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  right: -100%;
+  bottom: -100%;
+  background-color: #363d52;
+}
+.circle_7:after {
+  width: 200px;
+  height: 300px;
+  left: 0;
+  bottom: -300px;
+  transform: rotate(270deg);
+  transform-origin: 0 0;
+  animation: circle_1 0.8s ease-in-out 1 backwards;
+  animation-fill-mode: both;
+}
+
+.circle_8:before {
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  right: 0;
+  bottom: -100%;
+  background-color: #363d52;
+}
+.circle_8:after {
+  width: 200px;
+  height: 300px;
+  left: 0;
+  bottom: -100px;
+  transform: rotate(360deg);
+  transform-origin: 0 0;
+  animation: circle_6 0.8s ease-in-out 1 backwards;
+  animation-fill-mode: both;
+}
+
+.circle_8.small:before {
+  left: -100%;
+  right: 0;
+}
+.circle_8.small:after {
+  width: 100px;
+  height: 150px;
+  bottom: -50px;
+}
+
+.circle_1.small:after {
+  width: 100px;
+  height: 150px;
+  bottom: -50px;
+  right: -100px;
+  animation: circle_1_small 0.8s ease-in-out 1 backwards;
+  animation-fill-mode: both;
+}
+
+.circle_1.small:before { background-color: #42495c }
+.small.bg2:before { background-color: #2b3247 }
+.small.bg3:before { background-color: #42495c }
+.small.bg4:before { background-color: #2a3146 }
+
+.box:after { animation-delay: .2s !important; }
