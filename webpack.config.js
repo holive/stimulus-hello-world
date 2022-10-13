@@ -46,10 +46,12 @@ module.exports = {
 			chunkFilename: "[id].css",
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'index.html', template: './src/ejs/index.ejs',
+			filename: 'index.html',
+			template: './src/ejs/index.ejs',
 			minify: true,
 			showErrors: true,
-			favicon: "public/favicon.ico"
+			favicon: "public/images/favicon.ico",
+			cache: false,
 		}),
 		new HTMLInlineCSSWebpackPlugin(),
 	],

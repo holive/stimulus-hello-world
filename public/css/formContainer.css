@@ -1,0 +1,123 @@
+::placeholder { color: #30374a; opacity: 0.5; }
+:-ms-input-placeholder { color: #30374a; opacity: 0.5; }
+::-ms-input-placeholder { color: #30374a; opacity: 0.5; }
+
+[type='password']:not(:placeholder-shown) {
+  font-family: Verdana, sans-serif;
+  letter-spacing: 0.125em;
+}
+
+.form-container {
+  position: absolute;
+  right: -100%;
+  bottom: 0;
+  top: 0;
+  width: 600px;
+  max-width: 100%;
+  background-color: #fff;
+  z-index: 2;
+  animation: formContainer .9s ease-out 1 normal forwards;
+  animation-delay: .5s;
+  display: flex;
+  justify-content: center;
+  color: #30374a;
+}
+
+.form-container form {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  max-width: 405px;
+}
+
+form label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+form input {
+  background-color: #f2f6fa;
+  border-radius: 15px;
+  padding: 12px 20px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  width: 100%;
+  border: none;
+  color: inherit;
+  transition: opacity .2s linear;
+  outline: none;
+
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 5%);
+  -moz-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 5%);
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 5%);
+}
+
+form input:focus::placeholder {
+  opacity: 0;
+}
+
+form h1 {
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+}
+
+form button {
+  border: none;
+  border-radius: 17px;
+  text-align: center;
+  user-select: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+form button[type='submit'] {
+  height: 62px;
+  color: #fff;
+  background-color: #1a54f4;
+  font-size: 0.8rem;
+  margin-top: 17px;
+  box-shadow: 0 27px 17px -20px rgb(25 85 244 / 33%);
+}
+
+form > p {
+  font-size: .8rem;
+  text-align: center;
+  margin: 17px 0 23px 0;
+  opacity: .5;
+}
+
+.social {
+  display: flex;
+}
+
+form button[type='button'] {
+  height: 50px;
+  text-align: center;
+  font-weight: 600;
+  font-size: .9rem;
+  border: none;
+  flex-grow: 1;
+  color: #30374a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form button[type='button'] img {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+form button.google {
+  background-color: transparent;
+  border: 2px solid #dee1e6;
+  margin-right: 15px;
+}
+
+.facebook {
+  background-color: #f2f4f7;
+}

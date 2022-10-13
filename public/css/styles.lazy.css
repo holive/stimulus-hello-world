@@ -22,7 +22,7 @@
 .pct.box15:before {
   width: 200px;
   height: 200px;
-  background-image: url("./images/pc1.jpg");
+  background-image: url("../images/pc1.jpg");
   transform: scale(0);
   animation: pctAnimation 1.7s ease-in-out 1 normal forwards;
   animation-delay: .2s;
@@ -32,7 +32,7 @@
 .pct.box9:before {
   width: 200px;
   height: 200px;
-  background-image: url("./images/pc2.jpg");
+  background-image: url("../images/pc2.jpg");
   transform: scale(0);
   animation: pctAnimation 1.7s ease-in-out 1 normal forwards;
   animation-delay: .5s;
@@ -42,7 +42,7 @@
 .pct.box17:before {
   width: 200px;
   height: 200px;
-  background-image: url("./images/pc3.jpg");
+  background-image: url("../images/pc3.jpg");
   transform: scale(0);
   animation: pctAnimation 1.7s ease-in-out 1 normal forwards;
   animation-delay: .3s;
@@ -52,7 +52,7 @@
 .box1 > div:nth-child(4):before {
   width: 100px;
   height: 100px;
-  background-image: url("./images/pc4.jpg");
+  background-image: url("../images/pc4.jpg");
   transform: scale(0);
   animation: pctAnimation 1.7s ease-in-out 1 normal forwards;
   animation-delay: .4s;
@@ -63,7 +63,7 @@
 .box2 > div:before, .box3 > div:before {
   width: 100px;
   height: 100px;
-  background-image: url('./images/pc6.jpg');
+  background-image: url('../images/pc6.jpg');
   transform: scale(0);
   animation: pctAnimation 1.4s ease-out 1 normal forwards;
   animation-delay: .6s;
@@ -79,7 +79,7 @@
 .box10 > div:nth-child(2):before {
   width: 100px;
   height: 100px;
-  background-image: url("./images/pc5.jpg");
+  background-image: url("../images/pc5.jpg");
   transform: scale(0);
   animation: pctAnimation 1.4s ease-in-out 1 normal forwards;
   animation-delay: .5s;

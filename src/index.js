@@ -1,7 +1,7 @@
 import { Application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-import '../public/main.css'
-import lazyStyles from '../public/styles.lazy.css'
+import '../public/css/main.css'
+import lazyStyles from '../public/css/styles.lazy.css'
 
 lazyStyles?.use()
 
