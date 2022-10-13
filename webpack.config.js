@@ -37,9 +37,6 @@ module.exports = {
 			}
 		]
 	},
-	optimization: {
-		minimizer: [ `...`, new CssMinimizerPlugin() ],
-	},
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
@@ -55,4 +52,9 @@ module.exports = {
 		}),
 		new HTMLInlineCSSWebpackPlugin(),
 	],
+	optimization: {
+		minimize: true,
+		minimizer: [ `...`, new CssMinimizerPlugin() ],
+		realContentHash: false,
+	},
 }

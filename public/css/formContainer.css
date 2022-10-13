@@ -121,3 +121,20 @@ form button.google {
 .facebook {
   background-color: #f2f4f7;
 }
+
+.logo {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background-color: #ff3c49;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+}
