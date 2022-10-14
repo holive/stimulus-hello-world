@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
+const isProd = process.env.NODE_ENV === "production"
 
 module.exports = {
 	devServer: {
@@ -11,8 +12,12 @@ module.exports = {
 		static: { directory: path.join(__dirname, 'public') },
 	},
 	entry: { bundle: "./src/index.js" },
-	output: { filename: "[name].js", path: path.resolve(__dirname, "dist"), clean: true },
-	mode: "production",
+	output: {
+		filename: "[name].js",
+		path: path.resolve(__dirname, "dist"),
+		clean: isProd
+	},
+	mode: isProd ? "production" : "development",
 	module: {
 		rules: [
 			{
@@ -45,15 +50,15 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: './src/ejs/index.ejs',
-			minify: true,
-			showErrors: true,
+			minify: isProd,
+			showErrors: !isProd,
 			favicon: "public/images/favicon.ico",
 			cache: false,
 		}),
 		new HTMLInlineCSSWebpackPlugin(),
 	],
 	optimization: {
-		minimize: true,
+		minimize: isProd,
 		minimizer: [ `...`, new CssMinimizerPlugin() ],
 		realContentHash: false,
 	},
