@@ -1,6 +1,17 @@
-::placeholder { color: #30374a; opacity: 0.5; }
-:-ms-input-placeholder { color: #30374a; opacity: 0.5; }
-::-ms-input-placeholder { color: #30374a; opacity: 0.5; }
+::placeholder {
+  color: #30374a;
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+  color: #30374a;
+  opacity: 0.5;
+}
+
+::-ms-input-placeholder {
+  color: #30374a;
+  opacity: 0.5;
+}
 
 [type='password']:not(:placeholder-shown) {
   font-family: Verdana, sans-serif;
@@ -43,16 +54,42 @@ form input {
   border-radius: 15px;
   padding: 12px 20px;
   font-weight: 300;
-  margin-bottom: 1rem;
   width: 100%;
   border: none;
   color: inherit;
   transition: opacity .2s linear;
   outline: none;
+  z-index: 2;
+  position: relative;
 
   -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 5%);
   -moz-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 5%);
   box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 5%);
+}
+
+.input-container {
+  margin-bottom: 1rem;
+  background-color: #f2f6fa;
+  padding: 1px 1px 1px 2px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.input-container:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  background-color: #5f8bff;
+  transition: left .2s linear;
+}
+
+.email--focused .email.input-container:before,
+.password--focused .password.input-container:before {
+  left: 0;
 }
 
 form input:focus::placeholder {
@@ -139,3 +176,4 @@ form button.google {
 .logo img {
   width: 40px;
 }
+
