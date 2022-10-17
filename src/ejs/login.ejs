@@ -7,6 +7,12 @@
 												data-controller="form"
 												data-form-email-focus-class="email--focused"
 												data-form-password-focus-class="password--focused"
+
+												data-form-email-error-class="email--error"
+												data-form-password-error-class="password--error"
+
+												data-form-loading-class="form--loading"
+												data-form-invalid-credentials-class="form--invalid"
 								>
 										<div class="logo">
 												<img src="/public/images/logo.svg" loading="lazy" alt="logo" width="40px"
@@ -46,9 +52,17 @@
 												</div>
 										</div>
 
-										<button type="submit">Login</button>
-										<p>Easy login with</p>
+										<span class="message" data-form-target="message"></span>
 
+										<button
+														type="submit"
+														data-form-target="submit"
+														data-action="form#submit:prevent"
+										>
+												Login
+										</button>
+
+										<p>Easy login with</p>
 										<div class="social">
 												<button type="button" class="google">
 														<img src="/public/images/google.svg" loading="lazy" alt="Google logo" height="20px"

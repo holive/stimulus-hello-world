@@ -43,7 +43,7 @@
 }
 
 form label {
-  display: block;
+  display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 0.4rem;
@@ -76,19 +76,32 @@ form input {
   overflow: hidden;
 }
 
-.input-container:before {
+.input-container:before,
+.input-container:after {
   content: '';
   position: absolute;
   width: 100%;
   top: 0;
   bottom: 0;
   left: -100%;
-  background-color: #5f8bff;
-  transition: left .2s linear;
+  transition: left .5s ease-in-out;
+}
+
+.input-container:before {
+  background-color: #5f8bff
+}
+
+.input-container:after {
+  background-color: #ff676f
 }
 
 .email--focused .email.input-container:before,
 .password--focused .password.input-container:before {
+  left: 0;
+}
+
+.email--error .email.input-container:after,
+.password--error .password.input-container:after {
   left: 0;
 }
 
@@ -115,7 +128,7 @@ form button[type='submit'] {
   color: #fff;
   background-color: #1a54f4;
   font-size: 0.8rem;
-  margin-top: 17px;
+  margin-top: 20px;
   box-shadow: 0 27px 17px -20px rgb(25 85 244 / 33%);
 }
 
@@ -124,6 +137,14 @@ form > p {
   text-align: center;
   margin: 17px 0 23px 0;
   opacity: .5;
+}
+
+form .message {
+  font-size: .8rem;
+  text-align: center;
+  margin: 0 0 -2px 0;
+  color: #f44336;
+  line-height: 0;
 }
 
 .social {
