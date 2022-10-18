@@ -105,6 +105,11 @@ form input {
   left: 0;
 }
 
+.form--invalid .message {
+  -webkit-animation: icon-error 1s cubic-bezier(0.5, 0, 0.5, 1) both;
+  animation: invalid-credentials 1s cubic-bezier(0.5, 0, 0.5, 1) both;
+}
+
 form input:focus::placeholder {
   opacity: 0;
 }
