@@ -37,13 +37,22 @@ export default class extends Controller {
 	
 	submit() {
 		this.changeState()
-		if (!this.isEmailValid() || !this.isPasswordValid()) return
 		
-		if (this.emailTarget.value != 'ui@cint.com' || this.passwordTarget.value != '1234') {
+		const data = new FormData(this.element)
+		const email = data.get('email')
+		const password = data.get('password')
+		
+		if (!email) return this.changeState(c.INVALID_EMAIL)
+		else if (!password) return this.changeState(c.INVALID_PASSWORD)
+		else if (!this.isEmailValid() || !this.isPasswordValid()) return
+		
+		this.login(email, password)
+	}
+	
+	login(email, password) {
+		if (email != 'ui@cint.com' || password != '1234') {
 			return this.changeState(c.INVALID_CREDENTIALS)
 		}
-		
-		console.log('form sent...')
 	}
 	
 	isEmailValid() {
