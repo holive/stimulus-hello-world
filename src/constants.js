@@ -7,3 +7,4 @@ export const INVALID_EMAIL = 'INVALID_EMAIL'
 export const VALID_EMAIL = 'VALID_EMAIL'
 export const INVALID_PASSWORD = 'INVALID_PASSWORD'
 export const VALID_PASSWORD = 'VALID_PASSWORD'
+export const EMAIL_REGEX = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/

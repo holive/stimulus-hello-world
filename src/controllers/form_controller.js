@@ -43,8 +43,11 @@ export default class extends Controller {
 		const email = data.get('email')
 		const password = data.get('password')
 		
-		if (!email || !this.isEmailValid()) return this.changeState(c.INVALID_EMAIL)
-		else if (!password || !this.isPasswordValid()) return this.changeState(c.INVALID_PASSWORD)
+		if (!email || !this.isEmailValid()) {
+			return this.changeState(c.INVALID_EMAIL)
+		} else if (!password || !this.isPasswordValid()) {
+			return this.changeState(c.INVALID_PASSWORD)
+		}
 		
 		this.login(email, password)
 	}
@@ -54,13 +57,13 @@ export default class extends Controller {
 		
 		setTimeout(() => {
 			if (email != 'ui@cint.com' || password != '1234') {
-				return this.changeState(c.INVALID_CREDENTIALS)
+				this.changeState(c.INVALID_CREDENTIALS)
 			}
-		}, 1000)
+		}, 1500)
 	}
 	
 	isEmailValid() {
-		if (this.emailTarget.value && !this.emailTarget.value.match(/^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/)) {
+		if (this.emailTarget.value && !this.emailTarget.value.match(c.EMAIL_REGEX)) {
 			return this.changeState(c.INVALID_EMAIL)
 		}
 		this.changeState(c.VALID_EMAIL)

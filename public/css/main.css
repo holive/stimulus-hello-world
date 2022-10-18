@@ -1,6 +1,7 @@
 @import "reset.css";
 @import "formContainer.css";
 @import "keyframes.css";
+@import "loading.css";
 
 main {
   height: 100vh;
@@ -96,44 +97,129 @@ main {
   grid-row-gap: 0;
 }
 
-.box1 { grid-area: 1 / 1 / 2 / 2; }
-.box2 { grid-area: 1 / 2 / 2 / 3; }
-.box3 { grid-area: 1 / 3 / 2 / 4; }
-.box4 { grid-area: 1 / 4 / 2 / 5; }
-.box5 { grid-area: 1 / 5 / 2 / 6; }
-.box6 { grid-area: 1 / 6 / 2 / 7; }
-.box7 { grid-area: 1 / 7 / 2 / 8; }
-.box8 { grid-area: 2 / 1 / 3 / 2; }
-.box9 { grid-area: 2 / 2 / 3 / 3; }
-.box10 { grid-area: 2 / 3 / 3 / 4; }
-.box11 { grid-area: 2 / 4 / 3 / 5; }
-.box12 { grid-area: 2 / 5 / 3 / 6; }
-.box13 { grid-area: 2 / 6 / 3 / 7; }
-.box14 { grid-area: 2 / 7 / 3 / 8; }
-.box15 { grid-area: 3 / 1 / 4 / 2; }
-.box16 { grid-area: 3 / 2 / 4 / 3; }
-.box17 { grid-area: 3 / 3 / 4 / 4; }
-.box18 { grid-area: 3 / 4 / 4 / 5; }
-.box19 { grid-area: 3 / 5 / 4 / 6; }
-.box20 { grid-area: 3 / 6 / 4 / 7; }
-.box21 { grid-area: 3 / 7 / 4 / 8; }
-.box22 { grid-area: 4 / 1 / 5 / 2; }
-.box23 { grid-area: 4 / 2 / 5 / 3; }
-.box24 { grid-area: 4 / 3 / 5 / 4; }
-.box25 { grid-area: 4 / 4 / 5 / 5; }
-.box26 { grid-area: 4 / 5 / 5 / 6; }
-.box27 { grid-area: 4 / 6 / 5 / 7; }
-.box28 { grid-area: 4 / 7 / 5 / 8; }
+.box1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.box2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.box3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.box4 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.box5 {
+  grid-area: 1 / 5 / 2 / 6;
+}
+
+.box6 {
+  grid-area: 1 / 6 / 2 / 7;
+}
+
+.box7 {
+  grid-area: 1 / 7 / 2 / 8;
+}
+
+.box8 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.box9 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.box10 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.box11 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+
+.box12 {
+  grid-area: 2 / 5 / 3 / 6;
+}
+
+.box13 {
+  grid-area: 2 / 6 / 3 / 7;
+}
+
+.box14 {
+  grid-area: 2 / 7 / 3 / 8;
+}
+
+.box15 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.box16 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.box17 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+.box18 {
+  grid-area: 3 / 4 / 4 / 5;
+}
+
+.box19 {
+  grid-area: 3 / 5 / 4 / 6;
+}
+
+.box20 {
+  grid-area: 3 / 6 / 4 / 7;
+}
+
+.box21 {
+  grid-area: 3 / 7 / 4 / 8;
+}
+
+.box22 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.box23 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.box24 {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.box25 {
+  grid-area: 4 / 4 / 5 / 5;
+}
+
+.box26 {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+.box27 {
+  grid-area: 4 / 6 / 5 / 7;
+}
+
+.box28 {
+  grid-area: 4 / 7 / 5 / 8;
+}
 
 .box {
   position: relative;
   overflow: hidden;
 }
+
 .box:before {
   content: '';
   position: absolute;
   background-color: #363e53;
 }
+
 .box:after {
   content: '';
   position: absolute;
@@ -151,6 +237,7 @@ main {
   top: 0;
   bottom: 0;
 }
+
 .circle_0:after {
   width: 200px;
   height: 250px;
@@ -169,6 +256,7 @@ main {
   bottom: 0;
   background-color: #363c4f;
 }
+
 .circle_1:after {
   width: 200px;
   height: 300px;
@@ -187,6 +275,7 @@ main {
   bottom: 0;
   background-color: #383f52;
 }
+
 .circle_2:after {
   width: 200px;
   height: 300px;
@@ -206,6 +295,7 @@ main {
   bottom: -100%;
   background-color: #2d3448;
 }
+
 .circle_3:after {
   width: 200px;
   height: 300px;
@@ -217,8 +307,13 @@ main {
   animation-fill-mode: both;
 }
 
-.circle_2.circle_4:before { background-color: #3a4155 }
-.circle_2.circle_5:before { background-color: #3d4455 }
+.circle_2.circle_4:before {
+  background-color: #3a4155
+}
+
+.circle_2.circle_5:before {
+  background-color: #3d4455
+}
 
 .circle_6:before {
   border-radius: 50%;
@@ -228,6 +323,7 @@ main {
   bottom: -100%;
   background-color: #2a3146;
 }
+
 .circle_6:after {
   width: 200px;
   height: 300px;
@@ -247,6 +343,7 @@ main {
   bottom: -100%;
   background-color: #363d52;
 }
+
 .circle_7:after {
   width: 200px;
   height: 300px;
@@ -266,6 +363,7 @@ main {
   bottom: -100%;
   background-color: #363d52;
 }
+
 .circle_8:after {
   width: 200px;
   height: 300px;
@@ -281,6 +379,7 @@ main {
   left: -100%;
   right: 0;
 }
+
 .circle_8.small:after {
   width: 100px;
   height: 150px;
@@ -296,9 +395,22 @@ main {
   animation-fill-mode: both;
 }
 
-.circle_1.small:before { background-color: #42495c }
-.small.bg2:before { background-color: #2b3247 }
-.small.bg3:before { background-color: #42495c }
-.small.bg4:before { background-color: #2a3146 }
+.circle_1.small:before {
+  background-color: #42495c
+}
 
-.box:after { animation-delay: .2s !important; }
+.small.bg2:before {
+  background-color: #2b3247
+}
+
+.small.bg3:before {
+  background-color: #42495c
+}
+
+.small.bg4:before {
+  background-color: #2a3146
+}
+
+.box:after {
+  animation-delay: .2s !important;
+}
