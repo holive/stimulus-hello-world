@@ -1,15 +1,45 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8">
-    <title>Cint - Login</title>
-    <meta name="description" content="Login page, Cint™ | Digital Insights Gathering Platform">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="utf-8">
+		<title>Cint - Login</title>
+		<meta name="description" content="Login page, Cint™ | Digital Insights Gathering Platform">
 </head>
+
 <body>
+<main>
+		<div class="border">
+				<div class="container">
+						<div class="form-container">
+								<form
+												data-controller="form"
 
-<%- include('login'); -%>
+												data-form-email-focus-class="email--focused"
+												data-form-email-error-class="email--error"
+												data-form-password-focus-class="password--focused"
+												data-form-password-error-class="password--error"
 
+												data-form-loading-class="form--loading"
+												data-form-invalid-class="form--invalid"
+								>
+										<%- include('form-header'); -%>
+
+										<%- include('form-email-input'); -%>
+										<%- include('form-password-input'); -%>
+
+										<span class="message" data-form-target="message"></span>
+
+										<%- include('form-submit-button'); -%>
+										<%- include('form-social'); -%>
+								</form>
+						</div>
+
+						<%- include('grid-animation'); -%>
+				</div>
+		</div>
+</main>
 </body>
 </html>

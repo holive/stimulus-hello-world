@@ -40,14 +40,10 @@ export default class extends Controller {
 		if (this.submitTarget.disabled == true) return
 		
 		const data = new FormData(this.element)
-		const email = data.get('email')
-		const password = data.get('password')
+		const [email, password] = [data.get('email'), data.get('password')]
 		
-		if (!email || !this.isEmailValid()) {
-			return this.changeState(c.INVALID_EMAIL)
-		} else if (!password || !this.isPasswordValid()) {
-			return this.changeState(c.INVALID_PASSWORD)
-		}
+		if (!email || !this.isEmailValid()) return this.changeState(c.INVALID_EMAIL)
+		else if (!password || !this.isPasswordValid()) return this.changeState(c.INVALID_PASSWORD)
 		
 		this.login(email, password)
 	}
@@ -77,9 +73,7 @@ export default class extends Controller {
 	}
 	
 	invalidStateClass() {
-		setTimeout(() => {
-			this.element.classList.remove(this.invalidClass)
-		}, 1000)
+		setTimeout(() => this.element.classList.remove(this.invalidClass), 1000)
 		return this.invalidClass
 	}
 	
@@ -114,7 +108,7 @@ export default class extends Controller {
 			case state == c.INVALID_CREDENTIALS:
 				this.removeLoadingClass()
 				this.element.classList.add(this.invalidStateClass(), this.emailErrorClass, this.passwordErrorClass)
-				this.messageTarget.innerHTML = 'The username or password you entered is incorrect.'
+				this.messageTarget.innerHTML = 'Your username and/or password are incorrect. Please try again.'
 				break
 			
 			case state == c.INVALID_EMAIL:
@@ -129,7 +123,7 @@ export default class extends Controller {
 			
 			case state == c.INVALID_PASSWORD:
 				this.element.classList.add(this.invalidStateClass(), this.passwordErrorClass)
-				this.messageTarget.innerHTML = 'Password is empty.'
+				this.messageTarget.innerHTML = 'Please type your password.'
 				break
 			
 			case state == c.VALID_PASSWORD:
