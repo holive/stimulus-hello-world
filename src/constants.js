@@ -1,6 +1,7 @@
 export const FOCUS_EMAIL = 'FOCUS_EMAIL'
 export const FOCUS_PASSWORD = 'FOCUS_PASSWORD'
 export const BLUR = 'BLUR'
+export const LOADING = 'LOADING'
 export const INVALID_CREDENTIALS = 'INVALID_CREDENTIALS'
 export const INVALID_EMAIL = 'INVALID_EMAIL'
 export const VALID_EMAIL = 'VALID_EMAIL'

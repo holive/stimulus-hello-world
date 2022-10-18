@@ -36,23 +36,27 @@ export default class extends Controller {
 	}
 	
 	submit() {
-		this.changeState()
+		this.changeState('initial')
+		if (this.submitTarget.disabled == true) return
 		
 		const data = new FormData(this.element)
 		const email = data.get('email')
 		const password = data.get('password')
 		
-		if (!email) return this.changeState(c.INVALID_EMAIL)
-		else if (!password) return this.changeState(c.INVALID_PASSWORD)
-		else if (!this.isEmailValid() || !this.isPasswordValid()) return
+		if (!email || !this.isEmailValid()) return this.changeState(c.INVALID_EMAIL)
+		else if (!password || !this.isPasswordValid()) return this.changeState(c.INVALID_PASSWORD)
 		
 		this.login(email, password)
 	}
 	
 	login(email, password) {
-		if (email != 'ui@cint.com' || password != '1234') {
-			return this.changeState(c.INVALID_CREDENTIALS)
-		}
+		this.changeState(c.LOADING)
+		
+		setTimeout(() => {
+			if (email != 'ui@cint.com' || password != '1234') {
+				return this.changeState(c.INVALID_CREDENTIALS)
+			}
+		}, 1000)
 	}
 	
 	isEmailValid() {
@@ -69,6 +73,23 @@ export default class extends Controller {
 		return true
 	}
 	
+	invalidStateClass() {
+		setTimeout(() => {
+			this.element.classList.remove(this.invalidClass)
+		}, 1000)
+		return this.invalidClass
+	}
+	
+	addLoadingClass() {
+		this.element.classList.add(this.loadingClass)
+		this.submitTarget.disabled = true
+	}
+	
+	removeLoadingClass() {
+		this.element.classList.remove(this.loadingClass)
+		this.submitTarget.disabled = false
+	}
+	
 	changeState(state) {
 		switch (true) {
 			case state == c.FOCUS_EMAIL:
@@ -83,7 +104,12 @@ export default class extends Controller {
 				this.element.classList.remove(this.emailFocusClass, this.passwordFocusClass)
 				break
 			
+			case state == c.LOADING:
+				this.addLoadingClass()
+				break
+			
 			case state == c.INVALID_CREDENTIALS:
+				this.removeLoadingClass()
 				this.element.classList.add(this.invalidStateClass(), this.emailErrorClass, this.passwordErrorClass)
 				this.messageTarget.innerHTML = 'The username or password you entered is incorrect.'
 				break
@@ -115,12 +141,4 @@ export default class extends Controller {
 				this.messageTarget.innerHTML = ''
 		}
 	}
-	
-	invalidStateClass() {
-		setTimeout(() => {
-			this.element.classList.remove(this.invalidClass)
-		}, 1000)
-		return this.invalidClass
-	}
 }
-

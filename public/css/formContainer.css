@@ -128,13 +128,36 @@ form button {
   cursor: pointer;
 }
 
+.submit-container {
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
 form button[type='submit'] {
   height: 62px;
   color: #fff;
   background-color: #1a54f4;
   font-size: 0.8rem;
-  margin-top: 20px;
   box-shadow: 0 27px 17px -20px rgb(25 85 244 / 33%);
+  transition: opacity .2s ease-in-out;
+  opacity: 1;
+  width: 100%;
+}
+
+.form--loading button[type='submit'] {
+  cursor: default;
+  opacity: .8;
+}
+
+form button[type='submit'] span {
+  transition: top .5s ease-in-out;
+  position: relative;
+  top: 0;
+}
+
+.form--loading button[type='submit'] span {
+  top: 100%;
 }
 
 form > p {
@@ -203,3 +226,46 @@ form button.google {
   width: 40px;
 }
 
+.lds-ellipsis {
+  display: inline-block;
+  position: absolute;
+  width: 80px;
+  height: 15px;
+  top: -100%;
+  right: calc(50% - 80px / 2);
+  transition: top .5s ease-in-out;
+}
+
+.form--loading .lds-ellipsis {
+  top: 27px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
