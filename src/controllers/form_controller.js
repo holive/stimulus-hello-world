@@ -13,6 +13,7 @@ import * as c from "../constants";
  * @property {String} emailFocusClass
  * @property {String} loadingClass
  * @property {String} invalidClass
+ * @property {String} successClass
  */
 export default class extends Controller {
 	static targets = ["email", "password", "submit", "message"]
@@ -22,7 +23,8 @@ export default class extends Controller {
 		"emailError",
 		"passwordError",
 		"loading",
-		"invalid"
+		"invalid",
+		"success"
 	]
 	
 	focusInput({ target }) {
@@ -33,29 +35,6 @@ export default class extends Controller {
 	blurInput() {
 		this.changeState(c.BLUR)
 		this.isEmailValid()
-	}
-	
-	submit() {
-		this.changeState('initial')
-		if (this.submitTarget.disabled == true) return
-		
-		const data = new FormData(this.element)
-		const [email, password] = [data.get('email'), data.get('password')]
-		
-		if (!email || !this.isEmailValid()) return this.changeState(c.INVALID_EMAIL)
-		else if (!password || !this.isPasswordValid()) return this.changeState(c.INVALID_PASSWORD)
-		
-		this.login(email, password)
-	}
-	
-	login(email, password) {
-		this.changeState(c.LOADING)
-		
-		setTimeout(() => {
-			if (email != 'ui@cint.com' || password != '1234') {
-				this.changeState(c.INVALID_CREDENTIALS)
-			}
-		}, 1500)
 	}
 	
 	isEmailValid() {
@@ -87,8 +66,38 @@ export default class extends Controller {
 		this.submitTarget.disabled = false
 	}
 	
+	submit() {
+		this.changeState('initial')
+		if (this.submitTarget.disabled == true) return
+		
+		const data = new FormData(this.element)
+		const [email, password] = [data.get('email'), data.get('password')]
+		
+		if (!email || !this.isEmailValid()) return this.changeState(c.INVALID_EMAIL)
+		else if (!password || !this.isPasswordValid()) return this.changeState(c.INVALID_PASSWORD)
+		
+		this.login(email, password)
+	}
+	
+	login(email, password) {
+		this.changeState(c.LOADING)
+		
+		setTimeout(() => {
+			if (email != 'ui@cint.com' || password != '1234') {
+				return this.changeState(c.INVALID_CREDENTIALS)
+			}
+			
+			this.changeState(c.SUCCESS)
+			setTimeout(() => window.location.href = "https://www.cint.com/", 1000)
+		}, 1500)
+	}
+	
 	changeState(state) {
 		switch (true) {
+			case state == c.LOADING:
+				this.addLoadingClass()
+				break
+			
 			case state == c.FOCUS_EMAIL:
 				this.element.classList.add(this.emailFocusClass)
 				break
@@ -99,16 +108,6 @@ export default class extends Controller {
 			
 			case state == c.BLUR:
 				this.element.classList.remove(this.emailFocusClass, this.passwordFocusClass)
-				break
-			
-			case state == c.LOADING:
-				this.addLoadingClass()
-				break
-			
-			case state == c.INVALID_CREDENTIALS:
-				this.removeLoadingClass()
-				this.element.classList.add(this.invalidStateClass(), this.emailErrorClass, this.passwordErrorClass)
-				this.messageTarget.innerHTML = 'Your username and/or password are incorrect. Please try again.'
 				break
 			
 			case state == c.INVALID_EMAIL:
@@ -129,6 +128,17 @@ export default class extends Controller {
 			case state == c.VALID_PASSWORD:
 				this.element.classList.remove(this.passwordErrorClass)
 				this.messageTarget.innerHTML = ''
+				break
+			
+			case state == c.INVALID_CREDENTIALS:
+				this.removeLoadingClass()
+				this.element.classList.add(this.invalidStateClass(), this.emailErrorClass, this.passwordErrorClass)
+				this.messageTarget.innerHTML = 'Your username and/or password are incorrect. Please try again.'
+				break
+			
+			case state == c.SUCCESS:
+				this.removeLoadingClass()
+				this.element.closest('main').classList.add(this.successClass)
 				break
 			
 			default:

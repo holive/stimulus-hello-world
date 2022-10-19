@@ -105,3 +105,18 @@
     transform: translateX(3%);
   }
 }
+
+@keyframes logoSuccess {
+  0% {
+    left: calc(100% - 110px);
+  }
+  50% {
+    height: 70px;
+    width: 70px;
+  }
+  100% {
+    left: 51px;
+    height: 60px;
+    width: 145px;
+  }
+}

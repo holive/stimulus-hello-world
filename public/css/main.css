@@ -2,16 +2,20 @@
 @import "formContainer.css";
 @import "keyframes.css";
 @import "loading.css";
+@import "success.css";
+
+body {
+  background-color: #f6fafd;
+}
 
 main {
   height: 100vh;
   width: 100%;
-  background-color: #f6fafd;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 28px
+  padding: 28px;
+  transition: all .8s ease-in-out;
 }
 
 .border {
@@ -21,6 +25,7 @@ main {
   border-radius: 62px;
   animation: borderAnimation 1.2s ease-in-out 1 normal forwards;
   display: grid;
+  transition: all .4s ease-in-out;
 }
 
 .grid-border {
@@ -33,7 +38,7 @@ main {
 }
 
 .container {
-  min-height: 800px;
+  height: 800px;
   max-width: 1400px;
   width: 100%;
   border-radius: 56px;
@@ -41,6 +46,7 @@ main {
   position: relative;
   transform: scale(0.96);
   animation: containerAnimation 1.2s ease-in-out 1 normal forwards;
+  transition: all .8s linear;
 
   -webkit-box-shadow: 0 12px 51px 11px rgb(119 171 209 / 11%);
   -moz-box-shadow: 0 12px 51px 11px rgb(119 171 209 / 11%);

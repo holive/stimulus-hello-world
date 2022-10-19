@@ -24,8 +24,9 @@
 
 												data-form-loading-class="form--loading"
 												data-form-invalid-class="form--invalid"
+												data-form-success-class="form--success"
 								>
-										<%- include('form-header'); -%>
+										<h1>Login</h1>
 
 										<%- include('form-email-input'); -%>
 										<%- include('form-password-input'); -%>
@@ -35,6 +36,10 @@
 										<%- include('form-submit-button'); -%>
 										<%- include('form-social'); -%>
 								</form>
+
+								<div class="logo">
+										<img src="/public/images/logo.svg" loading="lazy" alt="logo" width="40px">
+								</div>
 						</div>
 
 						<%- include('grid-animation'); -%>
