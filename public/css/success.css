@@ -46,4 +46,5 @@ main.form--success {
   filter: brightness(1) contrast(1) invert(0) saturate(1);
   transition: all .8s ease-in-out;
   width: 145px;
+  height: 60px;
 }
