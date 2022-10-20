@@ -7,7 +7,7 @@
 }
 
 .form--success .grid-container {
-  width: 4999px;
+  width: 2560px;
 }
 
 .form--success .border {
@@ -30,7 +30,7 @@ main.form--success {
 }
 
 .form--success .grid-container {
-  visibility: hidden;
+  opacity: 0;
 }
 
 .form--success .logo {

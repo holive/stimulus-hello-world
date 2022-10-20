@@ -32,7 +32,9 @@
   display: flex;
   justify-content: center;
   color: #30374a;
-  transition: width .4s linear;
+  transition: width .8s linear;
+  flex-flow: column;
+  align-items: center;
 }
 
 .form-container form {
@@ -41,7 +43,7 @@
   flex-flow: column;
   width: 100%;
   max-width: 405px;
-  transition: opacity .4s linear;
+  transition: opacity .4s ease-in;
 }
 
 form label {
@@ -220,7 +222,7 @@ form button.google {
 .logo {
   position: absolute;
   top: 40px;
-  right: 40px;
+  left: calc(100% - 110px);
   background-color: #ff3c49;
   border-radius: 50%;
   height: 70px;
