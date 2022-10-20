@@ -1,22 +1,55 @@
-# Stimulus Starter
+### A hello world with Stimulus
 
-A preconfigured blank slate for exploring [Stimulus](https://github.com/hotwired/stimulus). Jump to [The Stimulus Handbook](https://stimulus.hotwired.dev/handbook/introduction) for an introduction.
+Live page (desktop only): [cint-login.web.app](https://cint-login.web.app).<br>
+Login: `ui@cint.com`
+Password: `1234`
+
+Layout copied from [Denis Bliznyuk](https://dribbble.com/shots/13954636-Onboarding-Animation).
 
 ---
 
-We recommend [remixing `stimulus-starter` on Glitch](https://glitch.com/edit/#!/import/git?url=https://github.com/hotwired/stimulus-starter.git) so you can work entirely in your browser without installing anything:
-
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/git?url=https://github.com/hotwired/stimulus-starter.git)
-
-Or, if you'd prefer to work from the comfort of your own text editor, you'll need to clone and set up `stimulus-starter`:
+Run
 
 ```
-$ git clone https://github.com/hotwired/stimulus-starter.git
-$ cd stimulus-starter
-$ yarn install
-$ yarn start
+yarn
+yarn dev
 ```
 
 ---
 
-© 2021 Basecamp, LLC.
+No React this time:
+
+> [Stimulus](https://github.com/hotwired/stimulus)
+> is a JavaScript framework with modest ambitions. It doesn't seek to take over your entire
+> front-end—in fact, it's not concerned with rendering HTML at all. Instead, it's designed to
+> augment
+> your HTML with just enough behavior to make it shine.
+
+
+How does it work? Sprinkle your HTML with controller, target, and action attributes:
+
+```html
+
+<div data-controller="hello">
+    <input data-hello-target="name" type="text">
+
+    <button data-action="click->hello#greet">Greet</button>
+
+    <span data-hello-target="output"></span>
+</div>
+```
+
+Then write a compatible controller. Stimulus brings it to life automatically:
+
+```js
+// hello_controller.js
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+    static targets = ["name", "output"]
+	
+    greet() {
+        this.outputTarget.textContent = `Hello, ${this.nameTarget.value}!`
+    }
+}
+```

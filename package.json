@@ -1,7 +1,6 @@
 {
-  "name": "@hotwired/stimulus-starter",
-  "version": "3.0.0",
-  "license": "MIT",
+  "name": "cint-login",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "webpack serve",

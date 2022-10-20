@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
+
 const isProd = process.env.NODE_ENV === "production"
 
 module.exports = {
 	devServer: {
-		compress: true,
 		port: 9000,
 		static: { directory: path.join(__dirname, 'public') },
 	},
@@ -23,7 +23,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				exclude: /\.lazy\.css$/i,
-				use: [ MiniCssExtractPlugin.loader, "css-loader" ],
+				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 			{
 				test: /\.lazy\.css$/i,
@@ -59,7 +59,7 @@ module.exports = {
 	],
 	optimization: {
 		minimize: isProd,
-		minimizer: [ `...`, new CssMinimizerPlugin() ],
+		minimizer: [`...`, new CssMinimizerPlugin()],
 		realContentHash: false,
 	},
 }
